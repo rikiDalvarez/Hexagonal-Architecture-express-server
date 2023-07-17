@@ -1,12 +1,13 @@
+import Todo from "../todos/domain/entities/Todo";
 import { Server } from "./Server";
 
 export class App {
-	server?: Server;
+  server?: Server;
 
-	async start(): Promise<void> {
-		const port = process.env.PORT ?? "8000";
-		this.server = new Server(port);
+  async start(): Promise<void> {
+    const port = process.env.PORT ?? "8000";
+    this.server = new Server(port);
 
-		await this.server.listen();
-	}
+    await this.server.listen();
+  }
 }
