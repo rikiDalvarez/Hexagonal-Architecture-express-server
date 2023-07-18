@@ -1,8 +1,18 @@
 import { Request, Response } from "express";
+import User from "../../domain/entities/User";
 
 export class UserController {
   constructor() {}
-  register(req: Request, res: Response) {
-    res.send("user registered");
+  async register(req: Request, res: Response) {
+    const { id, username, name, email, password, role }: User = req.body;
+    try {
+      const user = {}; /* define model and database prob mongo */
+      res.send(req.body.username + " registered");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  login(req: Request, res: Response) {
+    res.send("user logged in");
   }
 }
