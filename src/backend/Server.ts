@@ -2,7 +2,7 @@ import { json, urlencoded } from "body-parser";
 import cors from "cors";
 import express, { Request, Response, NextFunction } from "express";
 import helmet from "helmet";
-import Todo from "../todos/domain/entities/Todo";
+import { userRouter } from "../users/infrastructure/routes/userRoute";
 
 export class Server {
   private readonly app: express.Express;
@@ -35,8 +35,11 @@ export class Server {
       }
       next();
     };
-    this.app.use(/* userRouter */);
-    this.app.use(/* todoRouter */);
+    this.app.use(userRouter);
+    this.app.use("/", (req: Request, res: Response) => {
+      res.send("Hello World!");
+    });
+    // this.app.use(/* todoRouter */);
   }
 
   async listen(): Promise<void> {
