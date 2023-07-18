@@ -1,4 +1,3 @@
-import Todo from "../todos/domain/entities/Todo";
 import { Server } from "./Server";
 
 export class App {
