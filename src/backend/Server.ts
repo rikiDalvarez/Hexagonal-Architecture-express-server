@@ -1,9 +1,12 @@
+import "dotenv/config";
+import config from "../../config/config";
 import { json, urlencoded } from "body-parser";
 import cors from "cors";
 import express, { Request, Response, NextFunction } from "express";
 import helmet from "helmet";
 import { userRouter } from "../users/infrastructure/routes/userRoute";
 import { todoRouter } from "../todos/infrastructure/routes/todoRoute";
+import mongoose from "mongoose";
 
 export class Server {
   private readonly app: express.Express;
@@ -42,6 +45,14 @@ export class Server {
   }
 
   async listen(): Promise<void> {
+    const MONGO_URI: string = config.MONGO_URI;
+    await mongoose
+      .connect(MONGO_URI, {})
+      .then(() => console.log(`Connected to MongoDB 🌱`))
+      .catch((error) => {
+        console.error("❌ Failed to connect to MongoDB", error);
+      });
+
     await new Promise<void>((resolve) => {
       this.app.listen(this.port, () => {
         // eslint-disable-next-line no-console
