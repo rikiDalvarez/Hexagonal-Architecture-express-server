@@ -12,7 +12,7 @@ export class UserController {
       console.log(error);
     }
   }
-  login(req: Request, res: Response) {
+  async login(req: Request, res: Response) {
     res.send("user logged in");
   }
 }

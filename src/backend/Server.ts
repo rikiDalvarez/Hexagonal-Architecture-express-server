@@ -3,6 +3,7 @@ import cors from "cors";
 import express, { Request, Response, NextFunction } from "express";
 import helmet from "helmet";
 import { userRouter } from "../users/infrastructure/routes/userRoute";
+import { todoRouter } from "../todos/infrastructure/routes/todoRoute";
 
 export class Server {
   private readonly app: express.Express;
@@ -35,10 +36,8 @@ export class Server {
       }
       next();
     };
+    this.app.use(todoRouter);
     this.app.use(userRouter);
-    this.app.use("/", (req: Request, res: Response) => {
-      res.send("Hello World!");
-    });
     // this.app.use(/* todoRouter */);
   }
 

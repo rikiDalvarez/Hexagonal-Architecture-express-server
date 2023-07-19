@@ -3,6 +3,13 @@ import Todo from "../../domain/entities/Todo";
 
 export class TodoController {
   constructor() {}
+  async getTodos(req: Request, res: Response) {
+    try {
+      res.send("todos");
+    } catch (error) {
+      console.log(error);
+    }
+  }
   async addTodo(req: Request, res: Response) {
     const { id, title, description, completed }: Todo = req.body;
     try {
