@@ -4,8 +4,8 @@ import { json, urlencoded } from "body-parser";
 import cors from "cors";
 import express, { Request, Response, NextFunction } from "express";
 import helmet from "helmet";
-import { userRouter } from "../users/infrastructure/routes/userRoute";
-import { todoRouter } from "../todos/infrastructure/routes/todoRoute";
+import { userRouter } from "../infrastructure/routes/userRoute";
+import { todoRouter } from "../infrastructure/routes/todoRoute";
 import mongoose from "mongoose";
 
 export class Server {
@@ -39,8 +39,8 @@ export class Server {
       }
       next();
     };
-    this.app.use(todoRouter);
     this.app.use(userRouter);
+    this.app.use(todoRouter);
     // this.app.use(/* todoRouter */);
   }
 
