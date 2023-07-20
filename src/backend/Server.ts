@@ -7,6 +7,7 @@ import helmet from "helmet";
 import { userRouter } from "../infrastructure/routes/userRoute";
 import { todoRouter } from "../infrastructure/routes/todoRoute";
 import mongoose from "mongoose";
+import { connectDatabase } from "../infrastructure/mongoDb";
 
 export class Server {
   private readonly app: express.Express;
@@ -45,14 +46,7 @@ export class Server {
   }
 
   async listen(): Promise<void> {
-    const MONGO_URI: string = config.MONGO_URI;
-    await mongoose
-      .connect(MONGO_URI, {})
-      .then(() => console.log(`Connected to MongoDB 🌱`))
-      .catch((error) => {
-        console.error("❌ Failed to connect to MongoDB", error);
-      });
-
+    await connectDatabase(config.MONGO_URI, config.DATABASE);
     await new Promise<void>((resolve) => {
       this.app.listen(this.port, () => {
         // eslint-disable-next-line no-console

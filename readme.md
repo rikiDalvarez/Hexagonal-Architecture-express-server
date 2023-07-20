@@ -8,6 +8,18 @@ The hexagonal architecture consists of three main layers:
   
 + Infrastructure Layer: Handles the interaction with external resources, such as databases or APIs.
 
+Domain
+business / core
+stable code / high-level code
+essential complexity
+  the reason to build the app (the essence)
+
+Infrastructure
+technology / I/O
+volatile code / low-level code
+accidental complexity
+  the supporting technical mechanisms
+
 ## How i started the project
 
 The main logic evolves around the Todo entity, therefore i created a basic interface for the Todo entity in the domain layer.

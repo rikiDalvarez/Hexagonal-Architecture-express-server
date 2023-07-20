@@ -1,13 +1,12 @@
 import { v4 as uuidv4 } from "uuid";
-
-import { TodoDTO } from "./todoDTO";
+import { TodoDTO } from "./TodoDTO";
 import { TodoRepository } from "../domain/TodoRepository";
 import { Todo } from "../domain/Todo";
 
 export class TodoService {
   constructor(private readonly todoRepository: TodoRepository) {}
 
-  async createTodo(todoDTO: TodoDTO): Promise<Todo> {
+  async create(todoDTO: TodoDTO): Promise<Todo> {
     const todo: Todo = {
       id: uuidv4(),
       text: todoDTO.text,
