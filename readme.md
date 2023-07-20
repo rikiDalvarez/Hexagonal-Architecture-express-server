@@ -1,4 +1,20 @@
-# Getting start
+# Hexagonal Architecture with TypeScript, Nodejs, Express and Mongodb
+
+The hexagonal architecture consists of three main layers:
+
++ Domain Layer: Contains the core business logic and entities. This layer is independent of the infrastructure and application-specific details.
+  
++ Application Layer: Implements use cases and orchestrates the interaction between the domain and infrastructure layers.
+  
++ Infrastructure Layer: Handles the interaction with external resources, such as databases or APIs.
+
+## How i started the project
+
+The main logic evolves around the Todo entity, therefore i created a basic interface for the Todo entity in the domain layer.
+Then the TodoRepository interface has all the methods that we need to interact with the database. The TodoRepository interface is implemented in the infrastructure layer, in the TodoRepository class. This class uses the Mongoose library to interact with MongoDB.
+
+
+
 ### 📥 Installation
 
 

@@ -3,12 +3,12 @@ import { ITodoRepository } from "./interfaces/ITodoRepository";
 
 export class TodoRepository implements ITodoRepository {
   private todos: Todo[];
-  private readonly filePath: string;
+
   private nextId: number;
 
   constructor(filePath: string) {
     this.todos = [];
-    this.filePath = filePath;
+
     this.nextId = 1;
     this.getTodos();
   }
