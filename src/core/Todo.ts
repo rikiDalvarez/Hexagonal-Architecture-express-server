@@ -6,7 +6,7 @@ export default interface TodoProps {
 }
 
 export class Todo {
-  private readonly _id?: number;
+  readonly _id?: number;
   public title: string;
   public description: string;
   public completed: boolean;
