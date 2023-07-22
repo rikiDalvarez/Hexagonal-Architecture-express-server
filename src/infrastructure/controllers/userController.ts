@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import User from "../users/domain/entities/User";
+import User from "../../domain/User";
 
 export class UserController {
   constructor() {}

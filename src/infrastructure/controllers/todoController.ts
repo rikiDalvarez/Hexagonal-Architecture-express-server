@@ -1,10 +1,11 @@
 import { Request, Response } from "express";
-import Todo from "../core/Todo";
-import { TodoService } from "../application/todoSerivce";
-import { TodoRepositoryMongo } from "../infrastructure/TodoRepositoryMongo";
+import { TodoService } from "../../application/todoSerivce";
+import { TodoRepositoryMongo } from "../TodoRepositoryMongo";
 
 const todoRepository = new TodoRepositoryMongo();
 const todoService = new TodoService(todoRepository);
+
+//todo controller implmentes todoController interface
 
 export class TodoController {
   constructor() {}
@@ -16,7 +17,7 @@ export class TodoController {
       res.status(500).json({ error: "Failed to get todos" });
     }
   }
-  async postTodos(req: Request, res: Response) {
+  async addTodo(req: Request, res: Response) {
     try {
       const todoDTO = req.body;
       const createdTodo = await todoService.create(todoDTO);
@@ -25,15 +26,9 @@ export class TodoController {
       res.status(500).json({ error: "Failed to create todo" });
     }
   }
-  async addTodo(req: Request, res: Response) {
-    const { _id, title, description, completed }: Todo = req.body;
-    try {
-      res.send(req.body.title + " added");
-    } catch (error) {
-      console.log(error);
-    }
-  }
+
   async deleteTodo(req: Request, res: Response) {
-    res.send("todoDeleted");
+    try {
+    } catch (error) {}
   }
 }

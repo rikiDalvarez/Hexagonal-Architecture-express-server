@@ -30,7 +30,7 @@ Then the TodoRepository interface has all the methods that we need to interact w
 ### 📥 Installation
 
 
-Then, install the project dependencies:
+install the project dependencies:
 
 ```bash
 npm install

@@ -1,4 +1,4 @@
-import User from "../../../../src/users/domain/entities/User";
+import User from "../../../../src/domain/User";
 
 describe("User", () => {
   test("given a User with a name passed by contructor, when its called to sayHello method, should return a greeting message", () => {
