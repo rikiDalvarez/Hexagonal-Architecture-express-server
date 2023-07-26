@@ -4,11 +4,11 @@ import { json, urlencoded } from "body-parser";
 import cors from "cors";
 import express, { Request, Response, NextFunction } from "express";
 import helmet from "helmet";
-import { userRouter } from "../infrastructure/routes/userRoute";
-import { todoRouter } from "../infrastructure/routes/todoRoute";
-import mongoose from "mongoose";
+import { TodoController } from "../infrastructure/outputPort/controller";
+
 import { connectDatabase } from "../infrastructure/mongoDb";
 
+const controller = new TodoController();
 export class Server {
   private readonly app: express.Express;
   private readonly port: string;
@@ -40,8 +40,9 @@ export class Server {
       }
       next();
     };
-    this.app.use(userRouter);
-    this.app.use(todoRouter);
+    this.app.use("/", controller.getAll);
+
+    // this.app.use(/* authRouter */);
     // this.app.use(/* todoRouter */);
   }
 
