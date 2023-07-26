@@ -1,6 +1,5 @@
 // application/todoService.ts
-
-import { TodoRepository } from "../outputPorts/todoRepository";
+import { TodoRepository } from "../infrastructure/outputPort/TodoRepository";
 import { Todo } from "../domain/Todo";
 
 export class TodoService {
@@ -10,8 +9,9 @@ export class TodoService {
     this.todoRepository = todoRepository;
   }
 
-  async getAllTodos(): Promise<Todo[]> {
-    return this.todoRepository.findAll();
+  public async findAll(): Promise<Todo[]> {
+    const todos = await this.todoRepository.findAll();
+    return todos;
   }
 
   // Implement other use cases or services related to Todos here.

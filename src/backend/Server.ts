@@ -4,11 +4,24 @@ import { json, urlencoded } from "body-parser";
 import cors from "cors";
 import express, { Request, Response, NextFunction } from "express";
 import helmet from "helmet";
-import { TodoController } from "../infrastructure/outputPort/controller";
+import { TodoController } from "../infrastructure/inputAdapter/todoController";
+import { TodoService } from "../application/TodoService";
+import { TodoRepository } from "../infrastructure/outputPort/TodoRepository";
+import { MongoDBRepository } from "../infrastructure/outputAdapter/mogodbRepository";
 
 import { connectDatabase } from "../infrastructure/mongoDb";
 
-const controller = new TodoController();
+const mongoDBRepository = new MongoDBRepository();
+const obt = async () => {
+  mongoDBRepository.findAll;
+};
+
+console.log();
+const todoService = new TodoService(mongoDBRepository);
+const todoRepository = new TodoController(todoService);
+
+let test = new MongoDBRepository();
+
 export class Server {
   private readonly app: express.Express;
   private readonly port: string;
@@ -40,7 +53,7 @@ export class Server {
       }
       next();
     };
-    this.app.use("/", controller.getAll);
+    this.app.use("/", todoRepository.getAll);
 
     // this.app.use(/* authRouter */);
     // this.app.use(/* todoRouter */);
