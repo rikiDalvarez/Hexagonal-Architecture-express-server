@@ -1,7 +1,6 @@
-//output port, interface for the repository pattern
-//will act as a protocol for the repository
-//protecting the domain from the infrastructure
+import { Todo } from "../../domain/Todo";
 
-export interface IEntityRepository<T> {
-  getAll(): Promise<T>;
+export interface TodoRepository {
+  findAll(): Promise<Todo[]>;
+  // Add other methods for CRUD operations as needed.
 }
