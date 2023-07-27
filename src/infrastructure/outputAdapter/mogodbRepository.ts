@@ -7,4 +7,8 @@ export class MongoDBRepository implements TodoRepository {
     const todos = await TodoModel.find();
     return todos;
   }
+  async createTodo(todo: Todo): Promise<Todo> {
+    const newTodo = await TodoModel.create(todo);
+    return newTodo;
+  }
 }

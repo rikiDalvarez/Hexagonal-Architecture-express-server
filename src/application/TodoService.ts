@@ -1,19 +1,48 @@
 // application/todoService.ts
-import { TodoRepository } from "../infrastructure/outputPort/TodoRepository";
-import { Todo } from "../domain/Todo";
+import { MongoDBRepository } from "../infrastructure/outputAdapter/mogodbRepository";
+import { Request, Response } from "express";
+import TodoModel from "../infrastructure/outputAdapter/mongodbModels";
+import AddTodo from "../infrastructure/outputPort/AddTodo";
 
-export class TodoService {
-  private todoRepository: TodoRepository;
+const todoRepository = new MongoDBRepository();
 
-  constructor(todoRepository: TodoRepository) {
-    this.todoRepository = todoRepository;
-    console.log({ todoRepository });
+export const findAll = async (_req: Request, res: Response) => {
+  try {
+    const allTasks = await todoRepository.findAll();
+    res.status(200).send({
+      success: true,
+      data: JSON.stringify(allTasks),
+    });
+  } catch (error) {
+    res.status(500).send({
+      success: false,
+      error: "Error showing all tasks",
+    });
   }
+};
 
-  public async findAll(): Promise<Todo[]> {
-    const todos = await this.todoRepository.findAll();
-    return todos;
+export const createTodo = async (req: Request, res: Response) => {
+  try {
+    const todo = new TodoModel();
+    var params = req.body;
+    todo.text = params.text;
+    const addTodo = new AddTodo(todoRepository);
+    const newTodo = addTodo.execute(todo.text);
+
+    res.status(200).send({
+      success: true,
+      data: newTodo,
+    });
+  } catch (error) {
+    if (params.title.trim() === "") {
+      res.status(404).send({
+        success: false,
+        error: "Please enter a title.",
+      });
+    }
+    res.status(500).send({
+      success: false,
+      error: "Error creating a task",
+    });
   }
-
-  // Implement other use cases or services related to Todos here.
-}
+};
