@@ -7,6 +7,7 @@ export class TodoService {
 
   constructor(todoRepository: TodoRepository) {
     this.todoRepository = todoRepository;
+    console.log({ todoRepository });
   }
 
   public async findAll(): Promise<Todo[]> {

@@ -2,13 +2,14 @@
 
 import { Request, Response } from "express";
 import { TodoService } from "../../application/TodoService";
+import TodoModel from "../outputAdapter/mongodbModels";
+import { Todo } from "../../domain/Todo";
 
 export class TodoController {
   private todoService: TodoService;
 
   constructor(todoService: TodoService) {
     this.todoService = todoService;
-    console.log(this);
   }
 
   async getAll(_req: Request, res: Response) {
@@ -21,4 +22,14 @@ export class TodoController {
       res.status(500).json({ error: "Internal Server Error" });
     }
   }
+
+  // async getAll(req: Request, res: Response) {
+  //   try {
+  //     const todos = await TodoModel.find();
+  //     res.send(todos);
+  //   } catch (error) {
+  //     console.log(error);
+  //     res.json(error);
+  //   }
+  // }
 }

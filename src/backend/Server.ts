@@ -8,19 +8,11 @@ import { TodoController } from "../infrastructure/inputAdapter/todoController";
 import { TodoService } from "../application/TodoService";
 import { TodoRepository } from "../infrastructure/outputPort/TodoRepository";
 import { MongoDBRepository } from "../infrastructure/outputAdapter/mogodbRepository";
-
 import { connectDatabase } from "../infrastructure/mongoDb";
 
 const mongoDBRepository = new MongoDBRepository();
-const obt = async () => {
-  mongoDBRepository.findAll;
-};
-
-console.log();
 const todoService = new TodoService(mongoDBRepository);
-const todoRepository = new TodoController(todoService);
-
-let test = new MongoDBRepository();
+const todoController = new TodoController(todoService);
 
 export class Server {
   private readonly app: express.Express;
@@ -53,7 +45,7 @@ export class Server {
       }
       next();
     };
-    this.app.use("/", todoRepository.getAll);
+    this.app.use("/", todoController.getAll);
 
     // this.app.use(/* authRouter */);
     // this.app.use(/* todoRouter */);
