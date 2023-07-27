@@ -11,4 +11,12 @@ export class MongoDBRepository implements TodoRepository {
     const newTodo = await TodoModel.create(todo);
     return newTodo;
   }
+  async deleteTodo(id: string): Promise<Todo> {
+    const todo = await TodoModel.findOneAndDelete({ _id: id });
+    if (!todo) {
+      throw new Error("Todo not found");
+    }
+    console.log(todo);
+    return todo;
+  }
 }

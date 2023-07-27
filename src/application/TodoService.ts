@@ -1,8 +1,10 @@
 // application/todoService.ts
+//this file should have one abstraction more and not communicate directly with mongodb
 import { MongoDBRepository } from "../infrastructure/outputAdapter/mogodbRepository";
 import { Request, Response } from "express";
 import TodoModel from "../infrastructure/outputAdapter/mongodbModels";
 import AddTodo from "../infrastructure/outputPort/AddTodo";
+import DeleteTodo from "../infrastructure/outputPort/deleteTodo";
 
 const todoRepository = new MongoDBRepository();
 
@@ -27,7 +29,7 @@ export const createTodo = async (req: Request, res: Response) => {
     var params = req.body;
     todo.text = params.text;
     const addTodo = new AddTodo(todoRepository);
-    const newTodo = addTodo.execute(todo.text);
+    const newTodo = await addTodo.execute(todo.text);
 
     res.status(200).send({
       success: true,
@@ -45,4 +47,15 @@ export const createTodo = async (req: Request, res: Response) => {
       error: "Error creating a task",
     });
   }
+};
+
+export const deleteTodo = async (req: Request, res: Response) => {
+  const id = req.params._id;
+  const todoDeleteUseCase = new DeleteTodo(todoRepository);
+  const todoDeleted = await todoDeleteUseCase.delete(id);
+  res.status(200).send({
+    success: true,
+    message: "Task deleted successfully",
+    data: todoDeleted,
+  });
 };
