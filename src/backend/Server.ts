@@ -38,9 +38,6 @@ export class Server {
       next();
     };
     this.app.use("/", router);
-
-    // this.app.use(/* authRouter */);
-    // this.app.use(/* todoRouter */);
   }
 
   async listen(): Promise<void> {

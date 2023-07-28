@@ -12,6 +12,7 @@ The hexagonal architecture consists of three main layers:
 The Repository Pattern is a design pattern used to encapsulate the logic required to interact with data storage (e.g., databases, files) and provide a clean and consistent API for the rest of the application to access the data. It acts as a mediator between the domain/business logic and the data source, hiding the complexities of data access and manipulation from the core application.
 
 Characterics of the Repository Pattern:
+
 1. Abstraction: The repository abstracts the data access layer, allowing the application to work with domain entities and objects without having to worry about the underlying data storage details.
 2. Single Point of Entry: The repository acts as a single entry point for accessing and managing data, ensuring consistency in how data is retrieved and stored.
 

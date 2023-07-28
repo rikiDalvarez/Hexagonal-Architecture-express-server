@@ -5,7 +5,7 @@ import { MongoDBRepository } from "../infrastructure/outputAdapter/mogodbReposit
 import { Request, Response } from "express";
 import TodoModel from "../infrastructure/outputAdapter/mongodbModels";
 import AddTodo from "../infrastructure/outputPort/AddTodo";
-import DeleteTodo from "../infrastructure/outputPort/deleteTodo";
+import DeleteTodo from "../infrastructure/outputPort/DeleteTodo";
 import UpdateTodo from "../infrastructure/outputPort/updateTodo";
 
 const todoRepository = new MongoDBRepository();
@@ -13,10 +13,7 @@ const todoRepository = new MongoDBRepository();
 export const findAll = async (_req: Request, res: Response) => {
   try {
     const allTasks = await todoRepository.findAll();
-    res.status(200).send({
-      success: true,
-      data: JSON.stringify(allTasks),
-    });
+    res.status(200).send(JSON.stringify(allTasks));
   } catch (error) {
     res.status(500).send({
       success: false,
