@@ -19,4 +19,16 @@ export class MongoDBRepository implements TodoRepository {
     console.log(todo);
     return todo;
   }
+  async updateTodo(id: string): Promise<Todo> {
+    const updatedTodo = await TodoModel.findByIdAndUpdate(
+      {
+        _id: id,
+      },
+      { completed: true }
+    );
+    if (!updatedTodo) {
+      throw new Error("Todo not found");
+    }
+    return updatedTodo;
+  }
 }

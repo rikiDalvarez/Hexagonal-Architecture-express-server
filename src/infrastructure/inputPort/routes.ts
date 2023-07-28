@@ -1,5 +1,12 @@
+//TodoApiAdapter
 import express from "express";
-import { createTodo, findAll, deleteTodo } from "../../application/TodoService";
+
+import {
+  createTodo,
+  findAll,
+  deleteTodo,
+  updateTodo,
+} from "../../application/TodoService";
 // import { basicAuth } from "./auth";
 
 const router = express.Router();
@@ -8,7 +15,7 @@ const router = express.Router();
 
 router.post("/new", createTodo);
 router.delete("/delete/:_id", deleteTodo);
-// router.put("/complete/:_id", completeTask);
+router.put("/complete/:_id", updateTodo);
 router.get("/", findAll);
 // router.get("/:_id", findById);
 

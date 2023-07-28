@@ -4,14 +4,8 @@ import { json, urlencoded } from "body-parser";
 import cors from "cors";
 import express, { Request, Response, NextFunction } from "express";
 import helmet from "helmet";
-import { findAll } from "../application/TodoService";
-import { MongoDBRepository } from "../infrastructure/outputAdapter/mogodbRepository";
 import { connectDatabase } from "../infrastructure/mongoDb";
 import router from "../infrastructure/inputPort/routes";
-
-const mongoDBRepository = new MongoDBRepository();
-// const todoService = new TodoService(mongoDBRepository);
-// const todoController = new TodoController(todoService);
 
 export class Server {
   private readonly app: express.Express;
@@ -29,7 +23,6 @@ export class Server {
     this.app.use(cors());
     this.app.use(json());
     this.app.use(urlencoded({ extended: true }));
-
     this.app.use((req: Request, res: Response, next: NextFunction) => {
       res.setHeader("Cache-Control", "no-cache");
       next();

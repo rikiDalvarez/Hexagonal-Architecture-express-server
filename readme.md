@@ -7,6 +7,21 @@ The hexagonal architecture consists of three main layers:
 + Application Layer: Implements use cases and orchestrates the interaction between the domain and infrastructure layers.
   
 + Infrastructure Layer: Handles the interaction with external resources, such as databases or APIs.
+  
++ Repository Pattern:
+The Repository Pattern is a design pattern used to encapsulate the logic required to interact with data storage (e.g., databases, files) and provide a clean and consistent API for the rest of the application to access the data. It acts as a mediator between the domain/business logic and the data source, hiding the complexities of data access and manipulation from the core application.
+
+Characterics of the Repository Pattern:
+1. Abstraction: The repository abstracts the data access layer, allowing the application to work with domain entities and objects without having to worry about the underlying data storage details.
+2. Single Point of Entry: The repository acts as a single entry point for accessing and managing data, ensuring consistency in how data is retrieved and stored.
+
++ Interface (Programming):
+In programming, an Interface is a construct that defines a contract or set of methods that a class must implement. It acts as a blueprint for classes, specifying what methods and properties the implementing classes should have without dictating how they should be implemented. Interfaces are particularly useful for achieving abstraction, polymorphism, and loose coupling in object-oriented programming.
+
+Key characteristics of interfaces:
+
+1. Contract: An interface defines a contract that any class implementing it must adhere to. It sets the expectations for the behavior of the implementing class.
+2. 
 
 Domain
 business / core
