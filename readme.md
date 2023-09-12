@@ -1,5 +1,74 @@
 # Hexagonal Architecture with TypeScript, Nodejs, Express and Mongodb
 
+
+
+## How i started the project
+
+The main logic evolves around the Todo entity, therefore i created a basic interface for the Todo entity in the domain layer.
+Then the TodoRepository interface has all the methods that we need to interact with the database. The TodoRepository interface is implemented in the infrastructure layer, in the TodoRepository class. This class uses the Mongoose library to interact with MongoDB.
+
+
+### 📥 Installation
+
+clone this repository
+
+```bash
+git clone https://github.com/rikiDalvarez/Dice-game.git
+```
+
+go into the repo and install the project dependencies:
+
+```bash
+cd express-server-hexagonal-architecture
+npm install
+```
+
+build the project, it will create a dist folder
+
+```bash
+npm run build
+```
+
+To start the server  navigate to the dist/config folder and create a config.env file with the following content:
+
+```env
+NODE_ENV=env
+DATABASE="yourDatabaseName"
+MONGO_URI="yourMongoUri
+PORT=5000
+```
+
+### 🏁 How To Start
+
+To start the server run the following script:
+
+```bash
+npm run start
+```
+
+To test the app you have to set Up a basic authorization on your request.
+Here is an example with thunderClient
+
+![authorization](<./utilsDocs/authorization.jpg>)
+
+
+### 🏗️ Scripts
+This project comes with several predefined scripts in the package.json file:
+
+```test```: Runs tests using Jest.
+
+```lint```: Runs ESLint to check code quality.
+
+```lint:fix```: Runs ESLint to fix code style issues.
+
+```dev```: Starts the development server with ts-node-dev and allows debugging
+
+```build```: Removes the ./dist folder and compiles the TypeScript code into JavaScript in the ./dist folder.
+
+```start```: Starts the server in production using the compiled files in the dist/ folder.
+
+
+### Notes
 The hexagonal architecture consists of three main layers:
 
 + Domain Layer: Contains the core business logic and entities. This layer is independent of the infrastructure and application-specific details.
@@ -22,7 +91,7 @@ In programming, an Interface is a construct that defines a contract or set of me
 Key characteristics of interfaces:
 
 1. Contract: An interface defines a contract that any class implementing it must adhere to. It sets the expectations for the behavior of the implementing class.
-2. 
+
 
 Domain
 business / core
@@ -35,66 +104,6 @@ technology / I/O
 volatile code / low-level code
 accidental complexity
   the supporting technical mechanisms
-
-## How i started the project
-
-The main logic evolves around the Todo entity, therefore i created a basic interface for the Todo entity in the domain layer.
-Then the TodoRepository interface has all the methods that we need to interact with the database. The TodoRepository interface is implemented in the infrastructure layer, in the TodoRepository class. This class uses the Mongoose library to interact with MongoDB.
-
-
-
-### 📥 Installation
-
-
-install the project dependencies:
-
-```bash
-npm install
-```
-
-### 🏁 How To Start
-
-To start the server in development mode, run the following script:
-```bash
-npm run dev
-```
-Then, open http://localhost:8000 to access the server.
-
-
-### 🚀 Production
-
-To run the server in production mode, first build the TypeScript code into JavaScript by running:
-
-```bash
-npm run build
-```
-
-This will generate the dist directory with the compiled JavaScript files.
-
-Then, start the server by running:
-
-```bash
-npm start
-```
-
-This will start the server and make it available at http://localhost:8000.
-
-
-### 🏗️ Scripts
-This project comes with several predefined scripts in the package.json file:
-
-```test```: Runs tests using Jest.
-
-```lint```: Runs ESLint to check code quality.
-
-```lint:fix```: Runs ESLint to fix code style issues.
-
-```dev```: Starts the development server with ts-node-dev and allows debugging
-
-```build```: Removes the ./dist folder and compiles the TypeScript code into JavaScript in the ./dist folder.
-
-```start```: Starts the server in production using the compiled files in the dist/ folder.
-
 ### 📝 Dependencies
 
 - cors: middleware for handling Cross-Origin Resource Sharing (CORS)
