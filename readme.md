@@ -1,7 +1,7 @@
 # Hexagonal Architecture with TypeScript, Nodejs, Express and Mongodb
 
 This project is a backend server side app for creating, deleting and updating todos with basic authorization.
-
+Its structured with an hexagonal architecture.
 
 ### 📥 Installation
 
@@ -47,6 +47,7 @@ Here is an example with thunderClient
 ![authorization](<./utilsDocs/authorization.jpg>)
 
 GET ALL TODOS
+<br>
             "url": "http://localhost:5000/api",
             "method": "GET",
             "auth": {
@@ -58,6 +59,7 @@ GET ALL TODOS
             }
 
 POST NEW TODO
+<br>
             "url": "http://localhost:5000/api/new",
             "method": "POST",
             "body": {
@@ -74,7 +76,8 @@ POST NEW TODO
             },
 
 DELETE TODO
-<span style="color:red">make sure to get the correct id of your todo on your database or doing a get request of all todos.</span>
+__make sure to get the correct id of your todo on your database or doing a get request of all todos.__
+<br>
             "url": "http://localhost:5000/api/delete/idOfYourTODO",
             "method": "DELETE",
              "auth": {
@@ -86,7 +89,8 @@ DELETE TODO
             },
 
 UPDATE TODO
-<span style="color:red">make sure to get the correct id of your todo on your database or doing a get request of all todos.</span>
+__make sure to get the correct id of your todo on your database or doing a get request of all todos.__
+<br>
             "url": "http://localhost:5000/api/complete/idOYourTODO",
             "method": "PUT",
             "auth": {
