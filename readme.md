@@ -1,11 +1,6 @@
 # Hexagonal Architecture with TypeScript, Nodejs, Express and Mongodb
 
-
-
-## How i started the project
-
-The main logic evolves around the Todo entity, therefore i created a basic interface for the Todo entity in the domain layer.
-Then the TodoRepository interface has all the methods that we need to interact with the database. The TodoRepository interface is implemented in the infrastructure layer, in the TodoRepository class. This class uses the Mongoose library to interact with MongoDB.
+This project is a backend server side app for creating, deleting and updating todos with basic authorization.
 
 
 ### 📥 Installation
@@ -51,6 +46,9 @@ Here is an example with thunderClient
 
 ![authorization](<./utilsDocs/authorization.jpg>)
 
+to test the endpoints you can refer to [click here](./thunder-collection_Hexagonal-express.md)
+
+
 
 ### 🏗️ Scripts
 This project comes with several predefined scripts in the package.json file:
@@ -66,6 +64,11 @@ This project comes with several predefined scripts in the package.json file:
 ```build```: Removes the ./dist folder and compiles the TypeScript code into JavaScript in the ./dist folder.
 
 ```start```: Starts the server in production using the compiled files in the dist/ folder.
+
+## How i started the project
+
+The main logic evolves around the Todo entity, therefore i created a basic interface for the Todo entity in the domain layer.
+Then the TodoRepository interface has all the methods that we need to interact with the database. The TodoRepository interface is implemented in the infrastructure layer, in the TodoRepository class. This class uses the Mongoose library to interact with MongoDB.
 
 
 ### Notes

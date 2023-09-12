@@ -1,0 +1,98 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Hexagonal-express",
+    "dateExported": "2023-09-12T09:12:37.329Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "d301b5cb-1e01-4662-b1db-f088d1f2d27a",
+            "colId": "a79ebd48-7164-4f1d-88d3-cf7c9fe3d7ae",
+            "containerId": "",
+            "name": "get all",
+            "url": "http://localhost:5000/api",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-09-12T09:06:37.703Z",
+            "modified": "2023-09-12T09:07:09.019Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "user",
+                    "password": "1234"
+                }
+            },
+            "tests": []
+        },
+        {
+            "_id": "4de083ba-db63-4093-890a-21df4d312863",
+            "colId": "a79ebd48-7164-4f1d-88d3-cf7c9fe3d7ae",
+            "containerId": "",
+            "name": "post",
+            "url": "http://localhost:5000/api/new",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-09-12T09:07:19.520Z",
+            "modified": "2023-09-12T09:10:18.422Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"text\": \"vai flamengo\",\n  \"completed\": true\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "user",
+                    "password": "1234"
+                }
+            },
+            "tests": []
+        },
+        {
+            "_id": "fd81433a-91a7-49d7-9e19-f836f792528c",
+            "colId": "a79ebd48-7164-4f1d-88d3-cf7c9fe3d7ae",
+            "containerId": "",
+            "name": "deletePost",
+            "url": "http://localhost:5000/api/delete/65002afa91c5667360969e14",
+            "method": "DELETE",
+            "sortNum": 30000,
+            "created": "2023-09-12T09:09:43.689Z",
+            "modified": "2023-09-12T09:10:38.760Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "user",
+                    "password": "1234"
+                }
+            },
+            "tests": []
+        },
+        {
+            "_id": "9aa46f40-34de-487a-ba54-c12ec4201549",
+            "colId": "a79ebd48-7164-4f1d-88d3-cf7c9fe3d7ae",
+            "containerId": "",
+            "name": "updatePost",
+            "url": "http://localhost:5000/api/complete/650020105057ab4628759f4e",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2023-09-12T09:11:29.457Z",
+            "modified": "2023-09-12T09:12:20.755Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "user",
+                    "password": "1234"
+                }
+            },
+            "tests": []
+        }
+    ]
+}
