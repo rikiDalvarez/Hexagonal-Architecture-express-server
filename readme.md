@@ -85,13 +85,20 @@ DELETE TODO
                 }
             },
 
+UPDATE TODO
+<span style="color:red">make sure to get the correct id of your todo on your database or doing a get request of all todos.</span>
+            "url": "http://localhost:5000/api/complete/idOYourTODO",
+            "method": "PUT",
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "user",
+                    "password": "1234"
+                }
+            },
 
 
-
-
-to test the endpoints you can refer to [click here](./thunder-collection_Hexagonal-express.json)
-
-
+to test the endpoints you can refer to and import on your IDE [click here](./thunder-collection_Hexagonal-express.json)
 
 ### 🏗️ Scripts
 This project comes with several predefined scripts in the package.json file:
