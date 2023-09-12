@@ -30,14 +30,18 @@ export class Server {
   }
 
   private setUpRoutes(): void {
+    /*
+    console.log("entered")
     const checkUserData = (req: Request, res: Response, next: NextFunction) => {
+      console.log(req)
       const { username, password } = req.body;
       if (!username || !password) {
         res.status(401).send("Unauthorized");
       }
       next();
     };
-    this.app.use("/", router);
+    */
+    this.app.use("/api", router);
   }
 
   async listen(): Promise<void> {

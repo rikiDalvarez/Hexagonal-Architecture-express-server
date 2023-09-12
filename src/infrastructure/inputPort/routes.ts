@@ -10,7 +10,6 @@ import {
 import { basicAuth } from "../../backend/auth";
 
 const router = express.Router();
-
 router.use(basicAuth);
 router.post("/new", createTodo);
 router.delete("/delete/:_id", deleteTodo);
