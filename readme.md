@@ -46,7 +46,50 @@ Here is an example with thunderClient
 
 ![authorization](<./utilsDocs/authorization.jpg>)
 
-to test the endpoints you can refer to [click here](./thunder-collection_Hexagonal-express.md)
+GET ALL TODOS
+            "url": "http://localhost:5000/api",
+            "method": "GET",
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "user",
+                    "password": "1234"
+                }
+            }
+
+POST NEW TODO
+            "url": "http://localhost:5000/api/new",
+            "method": "POST",
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"text\": \"any text\",\n  \"completed\": false\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "user",
+                    "password": "1234"
+                }
+            },
+
+DELETE TODO
+<span style="color:red">make sure to get the correct id of your todo on your database or doing a get request of all todos.</span>
+            "url": "http://localhost:5000/api/delete/idOfYourTODO",
+            "method": "DELETE",
+             "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "user",
+                    "password": "1234"
+                }
+            },
+
+
+
+
+
+to test the endpoints you can refer to [click here](./thunder-collection_Hexagonal-express.json)
 
 
 
