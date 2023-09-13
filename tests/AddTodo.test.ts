@@ -1,5 +1,5 @@
 import { TodoRepository } from "../src/infrastructure/outputPort/TodoRepository";
-import AddTodo from "../src/infrastructure/outputPort/addTodo";
+import AddTodo from "../src/infrastructure/outputPort/AddTodo";
 import { Todo } from "../src/domain/Todo";
 
 describe("AddTodo", () => {
